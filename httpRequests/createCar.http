@@ -1,0 +1,10 @@
+POST  http://localhost:5000/cars
+Content-Type: application/json
+
+{
+  "modelName": "Tesla Model S",
+  "manufacturer": "Tesla",
+  "modelYear": "2022-05-01",
+  "isNew": true,
+  "price": 79999.99
+}
