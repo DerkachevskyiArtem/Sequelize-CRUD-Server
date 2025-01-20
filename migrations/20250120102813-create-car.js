@@ -29,21 +29,31 @@ module.exports = {
         defaultValue: false,
       },
       price: {
-        type: Sequelize.DECIMAL(14,2),
+        type: Sequelize.DECIMAL(14, 2),
         allowNull: false,
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        field: 'created_at'
+        field: 'created_at',
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-         field: 'updated_at'
+        field: 'updated_at',
       },
     });
+
+    await queryInterface.addIndex(
+      'cars',
+      ['model_name', 'manufacturer', 'model_year'],
+      {
+        unique: true,
+        name: 'unique_model_manufacturer_modelYear',
+      }
+    );
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('cars');
   },
