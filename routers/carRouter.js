@@ -4,8 +4,8 @@ const carController = require('../controllers/carController');
 carRouter.post('/', carController.createCar);
 carRouter.get('/', carController.getCars);
 
-carRouter.get('/:userId', carController.getCar);
-carRouter.put('/:userId', carController.updateCar);
-carRouter.delete('/:userId', carController.deleteCar);
+carRouter.get('/:carId', carController.getCar);
+carRouter.put('/:carId', carController.updateCar);
+carRouter.delete('/:carId', carController.deleteCar);
 
 module.exports = carRouter;
