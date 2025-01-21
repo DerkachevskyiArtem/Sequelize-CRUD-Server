@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       modelName: {
         type: DataTypes.STRING(128),
+        unique: 'model_manufacturer_year',
         allowNull: false,
         field: 'model_name',
         validate: {
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       manufacturer: {
         type: DataTypes.STRING(128),
+        unique: 'model_manufacturer_year',
         allowNull: false,
         validate: {
           notEmpty: true,
@@ -33,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       modelYear: {
         type: DataTypes.DATEONLY,
+        unique: 'model_manufacturer_year',
         allowNull: false,
         field: 'model_year',
         validate: {

@@ -11,15 +11,18 @@ module.exports = {
       },
       modelName: {
         type: Sequelize.STRING(128),
+        unique: 'model_manufacturer_year',
         allowNull: false,
         field: 'model_name',
       },
       manufacturer: {
         type: Sequelize.STRING(128),
+        unique: 'model_manufacturer_year',
         allowNull: false,
       },
       modelYear: {
         type: Sequelize.DATEONLY,
+        unique: 'model_manufacturer_year',
         allowNull: false,
         field: 'model_year',
       },
@@ -43,15 +46,6 @@ module.exports = {
         field: 'updated_at',
       },
     });
-
-    await queryInterface.addIndex(
-      'cars',
-      ['model_name', 'manufacturer', 'model_year'],
-      {
-        unique: true,
-        name: 'unique_model_manufacturer_modelYear',
-      }
-    );
   },
 
   async down(queryInterface, Sequelize) {
