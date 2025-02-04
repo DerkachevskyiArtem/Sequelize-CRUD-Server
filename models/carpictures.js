@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       CarPictures.belongsTo(Car, {
         foreignKey: 'carId',
         as: 'car',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       });
     }
   }

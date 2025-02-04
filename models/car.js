@@ -10,6 +10,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Car.hasMany(models.CarPictures, {
+        foreignKey: 'carId',
+        as: 'carPictures',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+
+      Car.belongsToMany(models.Dealerships, {
+        through: 'dealerships_to_cars',
+        foreignKey: 'carId',
+        as: 'dealerships',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   Car.init(
